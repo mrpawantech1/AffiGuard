@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-deep text-text-main font-display antialiased;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-deep;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyan-soft rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyan;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-cyan text-black font-bold rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 min-h-[44px] touch-manipulation;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border border-border-subtle text-text-main font-semibold rounded-lg transition-all duration-200 hover:bg-bg-card2 hover:border-border-strong min-h-[44px] touch-manipulation;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-bg-card border border-border-subtle text-text-main font-semibold rounded-lg transition-all duration-200 hover:border-border-strong min-h-[44px] touch-manipulation;
+  }
+  .card {
+    @apply bg-bg-card border border-border-subtle rounded-2xl p-6 md:p-8 transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:border-cyan/30 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)];
+  }
+  .section-title {
+    @apply text-3xl md:text-5xl font-extrabold tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-text-muted text-lg md:text-xl max-w-2xl mx-auto;
+  }
+  .section-eyebrow {
+    @apply text-cyan font-bold uppercase tracking-[0.1em] text-xs mb-4;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan to-blue-400 bg-clip-text text-transparent;
+  }
+}
