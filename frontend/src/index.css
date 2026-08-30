@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────────────────────
+   BASE STYLES
+   ────────────────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-deep text-text-main font-display antialiased;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-cyan text-black;
+  }
+
+  /* Focus ring */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-cyan ring-offset-2 ring-offset-bg-deep;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   CUSTOM COMPONENTS
+   ────────────────────────────────────────────────────────────── */
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           bg-cyan text-black font-bold rounded-lg 
+           transition-all duration-200 
+           hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] hover:-translate-y-0.5 
+           active:scale-95 active:translate-y-0 
+           min-h-[44px] touch-manipulation;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           border border-border-subtle text-text-main font-semibold rounded-lg 
+           transition-all duration-200 
+           hover:bg-bg-card2 hover:border-border-strong 
+           active:scale-95 
+           min-h-[44px] touch-manipulation;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           bg-bg-card border border-border-subtle text-text-main font-semibold rounded-lg 
+           transition-all duration-200 
+           hover:border-border-strong 
+           active:scale-95 
+           min-h-[44px] touch-manipulation;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 
+           bg-red-bg text-red border border-red/25 font-semibold rounded-lg 
+           transition-all duration-200 
+           hover:bg-red-bg/40 
+           active:scale-95 
+           min-h-[44px] touch-manipulation;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-bg-card border border-border-subtle rounded-2xl p-6 md:p-8 
+           transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:border-cyan/30 hover:-translate-y-1 
+           hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] 
+           transition-all duration-300;
+  }
+
+  /* ── Stats Cards ── */
+  .stat-card {
+    @apply bg-bg-card border border-border-subtle rounded-xl p-4 
+           cursor-pointer transition-all duration-300;
+  }
+  .stat-card:hover {
+    @apply border-border-strong -translate-y-1 shadow-lg;
+  }
+  .stat-card.active {
+    @apply border-cyan shadow-[0_0_30px_rgba(0,229,255,0.1)];
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full 
+           text-[10px] font-bold border transition-all duration-200;
+  }
+
+  .badge-active {
+    @apply bg-green-bg/10 text-green border-green/20;
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.08);
+  }
+  .badge-broken {
+    @apply bg-red-bg/10 text-red border-red/20;
+    box-shadow: 0 0 20px rgba(248, 113, 113, 0.08);
+  }
+  .badge-out_of_stock {
+    @apply bg-yellow-bg/10 text-yellow border-yellow/20;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.08);
+  }
+  .badge-pending {
+    @apply bg-bg-card2 text-text-muted border-border-subtle;
+  }
+
+  /* ── Typography Helpers ── */
+  .section-title {
+    @apply text-3xl md:text-5xl font-extrabold tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-text-muted text-lg md:text-xl max-w-2xl mx-auto;
+  }
+  .section-eyebrow {
+    @apply text-cyan font-bold uppercase tracking-[0.1em] text-xs mb-4;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-cyan to-blue-400 bg-clip-text text-transparent;
+  }
+
+  /* ── Table Row Hover ── */
+  .table-row-hover td {
+    @apply transition-colors duration-150;
+  }
+  .table-row-hover:hover td {
+    @apply bg-bg-card2/40;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   ANIMATIONS & KEYFRAMES
+   ────────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .animate-slide-in {
+    animation: slideInRight 0.3s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+  }
+  .animate-pulse-slow {
+    animation: pulseSlow 2s ease-in-out infinite;
+  }
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   SCROLLBAR STYLING
+   ────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-bg-deep;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-cyan-soft rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyan;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   MODAL BACKDROP & OVERLAY
+   ────────────────────────────────────────────────────────────── */
+
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  @apply bg-bg-card border border-border-strong rounded-2xl w-full max-w-md p-6;
+  animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   RESPONSIVE UTILITIES (Mobile First)
+   ────────────────────────────────────────────────────────────── */
+
+/* Small screens: hide text, show only icons */
+@media (max-width: 640px) {
+  .btn .btn-text {
+    @apply hidden;
+  }
+}
+
+/* Ensure touch targets are at least 44px */
+button,
+a,
+input[type="button"],
+input[type="submit"] {
+  @apply min-h-[44px];
+    }
