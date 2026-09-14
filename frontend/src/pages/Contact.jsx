@@ -60,21 +60,21 @@ const Contact = () => {
         <div className="card text-center">
           <div className="text-3xl mb-3">📧</div>
           <h3 className="font-bold text-sm">Email Support</h3>
-          <a href="mailto:support@affiguard.com" className="text-cyan text-sm hover:underline">support@affiguard.com</a>
+          <a href="mailto:mrpawantech1@gmail.com" className="text-cyan text-sm hover:underline">support@affiguard.com</a>
           <p className="text-text-muted text-xs mt-2">General questions, billing, account issues</p>
         </div>
 
         <div className="card text-center">
           <div className="text-3xl mb-3">🐛</div>
           <h3 className="font-bold text-sm">Bug Reports</h3>
-          <a href="mailto:support@affiguard.com" className="text-cyan text-sm hover:underline">support@affiguard.com</a>
+          <a href="mailto:mrpawantech1@gmail.com" className="text-cyan text-sm hover:underline">support@affiguard.com</a>
           <p className="text-text-muted text-xs mt-2">Technical issues, false alerts, detection problems</p>
         </div>
 
         <div className="card text-center">
           <div className="text-3xl mb-3">🔒</div>
           <h3 className="font-bold text-sm">Privacy &amp; Legal</h3>
-          <a href="mailto:support@affiguard.com" className="text-cyan text-sm hover:underline">support@affiguard.com</a>
+          <a href="mailto:mrpawantech1@gmail.com" className="text-cyan text-sm hover:underline">support@affiguard.com</a>
           <p className="text-text-muted text-xs mt-2">Data deletion requests and privacy concerns</p>
         </div>
       </div>
